@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTasker.Core.Tests", "NTask
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTasker", "NTasker\NTasker.csproj", "{70C6DB19-041D-4C09-ADA1-286018BDF094}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTasker.Tests", "NTasker.Tests\NTasker.Tests.csproj", "{1BAB96A7-CABB-4E8D-A3EC-E1D149FF0F0C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,11 +31,16 @@ Global
 		{70C6DB19-041D-4C09-ADA1-286018BDF094}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70C6DB19-041D-4C09-ADA1-286018BDF094}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70C6DB19-041D-4C09-ADA1-286018BDF094}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BAB96A7-CABB-4E8D-A3EC-E1D149FF0F0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BAB96A7-CABB-4E8D-A3EC-E1D149FF0F0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BAB96A7-CABB-4E8D-A3EC-E1D149FF0F0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BAB96A7-CABB-4E8D-A3EC-E1D149FF0F0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{36D775ED-33AE-409A-8337-A209D4D3187E} = {47C45E67-31AB-4681-9AED-33F952ADBFC1}
+		{1BAB96A7-CABB-4E8D-A3EC-E1D149FF0F0C} = {47C45E67-31AB-4681-9AED-33F952ADBFC1}
 	EndGlobalSection
 EndGlobal

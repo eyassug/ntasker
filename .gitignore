@@ -5,3 +5,5 @@ source/NTasker.Core.Tests/obj/
 source/NTasker.Core.Tests/bin/
 source/NTasker/obj/
 source/NTasker/bin/
+source/NTasker.Tests/obj/
+source/NTasker.Tests/bin/
