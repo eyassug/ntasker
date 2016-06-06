@@ -7,3 +7,5 @@ source/NTasker/obj/
 source/NTasker/bin/
 source/NTasker.Tests/obj/
 source/NTasker.Tests/bin/
+source/NTasker.HostApp/obj/
+source/NTasker.HostApp/bin/
