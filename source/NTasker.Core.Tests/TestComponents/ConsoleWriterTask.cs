@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace NTasker.Core.Tests.TestComponents
 {
     [Export(typeof(INTask))]
+    [ExportMetadata("Frequency", (long)1000)]
     public class ConsoleWriterTask : INTask
     {
 
@@ -19,4 +20,19 @@ namespace NTasker.Core.Tests.TestComponents
             });
         }
     }
+
+    class ConsoleWriterTaskConfiguration
+    {
+        readonly string _message;
+        public ConsoleWriterTaskConfiguration(string message)
+        {
+            _message = message;
+        }
+
+        public string Message 
+        {
+            get { return _message; }
+        }
+    }
+
 }

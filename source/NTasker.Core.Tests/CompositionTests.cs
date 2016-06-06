@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition;
@@ -62,8 +63,9 @@ namespace NTasker.Core.Tests
         //
         #endregion
         private CompositionContainer _container;
-        [Import(typeof(INTask))]
-        public INTask _ntask;
+        [ImportMany]
+        IEnumerable<Lazy<INTask, INTaskConfiguration>> _tasks;
+
         [TestMethod]
         public async Task BasicCompositionTest_ShouldLazyLoadINTaskImplementations()
         {
@@ -78,9 +80,15 @@ namespace NTasker.Core.Tests
             try
             {
                 this._container.ComposeParts(this);
-                Assert.IsNotNull(this._ntask);
-                Assert.AreEqual(typeof(ConsoleWriterTask), _ntask.GetType());
-                await this._ntask.Execute();
+                Assert.IsNotNull(this._tasks);
+                foreach(Lazy<INTask, INTaskConfiguration> task in _tasks)
+                {
+                    Assert.IsNotNull(task.Value);
+                    Assert.IsNotNull(task.Metadata.Frequency);
+                    // Optionally execute task to see results
+                    await task.Value.Execute();
+                }
+                
             }
             catch (CompositionException compositionException)
             {
