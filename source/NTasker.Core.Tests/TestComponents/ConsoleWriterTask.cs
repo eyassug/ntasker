@@ -16,7 +16,7 @@ namespace NTasker.Core.Tests.TestComponents
         {
             await (new TaskFactory()).StartNew(async () =>
             {
-                Console.WriteLine("Writing to console ...");
+                Console.WriteLine("Writing to console every second...");
             });
         }
     }
