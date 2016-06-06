@@ -1,3 +1,5 @@
 source/NTasker.Core/bin/
 source/NTasker.Core/obj/
 *.suo
+source/NTasker.Core.Tests/obj/
+source/NTasker.Core.Tests/bin/

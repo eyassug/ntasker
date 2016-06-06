@@ -5,6 +5,10 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTasker.Core", "NTasker.Core\NTasker.Core.csproj", "{D13D6C01-609F-4EE5-9542-9560A6DDFF86}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{47C45E67-31AB-4681-9AED-33F952ADBFC1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTasker.Core.Tests", "NTasker.Core.Tests\NTasker.Core.Tests.csproj", "{36D775ED-33AE-409A-8337-A209D4D3187E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +19,15 @@ Global
 		{D13D6C01-609F-4EE5-9542-9560A6DDFF86}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D13D6C01-609F-4EE5-9542-9560A6DDFF86}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D13D6C01-609F-4EE5-9542-9560A6DDFF86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36D775ED-33AE-409A-8337-A209D4D3187E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36D775ED-33AE-409A-8337-A209D4D3187E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36D775ED-33AE-409A-8337-A209D4D3187E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36D775ED-33AE-409A-8337-A209D4D3187E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{36D775ED-33AE-409A-8337-A209D4D3187E} = {47C45E67-31AB-4681-9AED-33F952ADBFC1}
 	EndGlobalSection
 EndGlobal
