@@ -15,8 +15,6 @@ namespace NTasker
     {
         #region Fields
         private readonly string _name;
-        private readonly ICollection<Assembly> _assembliesWithTasks;
-        private readonly string _assemblyDirectory;
         private readonly AggregateCatalog _catalog;
         private CompositionContainer _compositionContainer;
 
@@ -70,7 +68,7 @@ namespace NTasker
             }
             catch(Exception ex)
             {
-                Console.WriteLine("Could not compose host container. Exiting gracefully ...");
+                Console.WriteLine("Could not compose host container.\n{0}\n Exiting gracefully ...", ex.Message);
             }
         }
 
@@ -79,21 +77,26 @@ namespace NTasker
             _compositionContainer = new CompositionContainer(_catalog);
             _compositionContainer.ComposeParts(this);
         }
-
+        private static INTask CurrentTask;
         private async Task RunTasks(CancellationToken token)
         {
-            while(!token.IsCancellationRequested)
+            foreach (Lazy<INTask, INTaskConfiguration> task in _tasks)
             {
-                foreach (Lazy<INTask, INTaskConfiguration> task in _tasks)
-                {
-                    //TODO: Use task.Metadata.Frequency to schedule execution
-                    //TODO: Add separate threads to initiate task demons and run tasks in their own context
-                    await task.Value.Execute();
-                    Thread.Sleep(TimeSpan.FromMilliseconds(task.Metadata.Frequency));
-                }
-            }
+                //TODO: Use task.Metadata.Frequency to schedule execution
+                //TODO: Add separate threads to initiate task demons and run tasks in their own context
+                await new NTaskDaemon(token, task.Value, (int)task.Metadata.Frequency).Start();
+            }            
         }
 
-        public virtual void Configure() { }
+        
+
+        protected virtual void Configure() { }
+
+        #region Properties
+        public string Name { get { return _name; } }
+        public AggregateCatalog Catalog { get { return this._catalog; } }
+        public CompositionContainer Container { get { return this._compositionContainer; } }
+
+        #endregion
     }
 }
